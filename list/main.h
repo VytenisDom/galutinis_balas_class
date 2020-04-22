@@ -29,19 +29,21 @@ using std::uniform_int_distribution;
 using std::left;
 using std::setw;
 
-struct mokinys {
+class mokinys {
+public:
   string vardas;
   string pavarde;
   list<double> pazymiai;
   double vidurkis;
   double mediana;
   double egzaminas;
+
+  void readFile(double &, list<mokinys> &);
+  void enterByHand(double &, bool &, list<mokinys> &);
+  void longestNameAndSurname(int &, int &, list<mokinys>);
+  void printFile(string, int, int, list<mokinys> &);
+  void studentSort(list<mokinys> &, list<mokinys> &, string);
 };
 
 bool compare(const mokinys &, const mokinys &);
-void readFile(double &, list<mokinys> &);
-void enterByHand(double &, bool &, list<mokinys> &);
-void longestNameAndSurname(int &, int &, list<mokinys>);
-void printFile(string, int, int, list<mokinys> &);
 void generateFiles();
-void studentSort(list<mokinys> &, list<mokinys> &, string);

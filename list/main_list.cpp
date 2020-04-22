@@ -9,6 +9,7 @@ int main() {
   bool naujas;
   string tipas;
   list<mokinys> mok;
+  mokinys obj;
   cout << "Generuojami failai..." << endl;
   generateFiles();
   cout << "Sveiki, tai mokiniu galutiniu balu skaiciavimo sistema.\n" << endl;
@@ -16,14 +17,14 @@ int main() {
   cout << "Skaityti is failo (1) ar rasyti ranka (0)? ";
   cin >> budas;
   if(budas) {
-    readFile(inputPazymys, mok);
+    obj.readFile(inputPazymys, mok);
   } else {
-    enterByHand(inputPazymys, naujas, mok);
+    obj.enterByHand(inputPazymys, naujas, mok);
   }
   //longestNameAndSurname(longestName, longestSurname, mok);
 
   cout << "Skaiciuoti pagal vidurki ar mediana? (vid / med) ";
   cin >> tipas;
-  printFile(tipas, longestName, longestSurname, mok);
+  obj.printFile(tipas, longestName, longestSurname, mok);
   return 0;
 }
