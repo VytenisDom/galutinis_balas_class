@@ -42,7 +42,7 @@ public:
   void enterByHand(double &, bool &, deque<mokinys> &);
   void longestNameAndSurname(int &, int &, deque<mokinys>);
   void printFile(string, int, int, deque<mokinys> &);
-  void studentSort(deque<mokinys> &, deque<mokinys> &, deque<mokinys> &, string);
+  void studentSort(deque<mokinys> &, deque<mokinys> &, string);
 };
 
 bool compare(const mokinys &, const mokinys &);
