@@ -117,7 +117,7 @@ void generateFiles() {
 
 }
 
-void readFile(double &inputPazymys, list<mokinys> &mok) {
+void mokinys::readFile(double &inputPazymys, list<mokinys> &mok) {
   std::list<double>::iterator it, it1, it2;
   string failas;
   cout << "Galimi failai:" << endl;
@@ -201,7 +201,7 @@ void readFile(double &inputPazymys, list<mokinys> &mok) {
   }
 }
 
-void enterByHand(double &inputPazymys, bool &naujas, list<mokinys> &mok) {
+void mokinys::enterByHand(double &inputPazymys, bool &naujas, list<mokinys> &mok) {
   std::list<double>::iterator it, it1, it2;
   for(int i = 0;;i++) {
     cout << "Prideti nauja mokini? (1 - taip, 0 - ne) ";
@@ -273,7 +273,7 @@ void enterByHand(double &inputPazymys, bool &naujas, list<mokinys> &mok) {
   //sort(mok.begin(), mok.end(), compare);
 }
 
-void longestNameAndSurname(int &longestName, int &longestSurname, list<mokinys> mok) {
+void mokinys::longestNameAndSurname(int &longestName, int &longestSurname, list<mokinys> mok) {
   std::list<mokinys>::iterator it;
   for(int i = 0; i < mok.size(); i++) {
     it = std::next(mok.begin(), i);
@@ -284,7 +284,7 @@ void longestNameAndSurname(int &longestName, int &longestSurname, list<mokinys> 
   if(longestSurname < 8) longestSurname = 8;
 }
 
-void studentSort(list<mokinys> &mok, list<mokinys> &mokBad, string tipas) {
+void mokinys::studentSort(list<mokinys> &mok, list<mokinys> &mokBad, string tipas) {
   std::list<mokinys>::iterator it;
   auto start = std::chrono::steady_clock::now();
   for(int i = 0; i < mok.size(); i++) {
@@ -309,7 +309,7 @@ void studentSort(list<mokinys> &mok, list<mokinys> &mokBad, string tipas) {
   cout << "Mokiniu rusiavimas uztruko " <<  std::chrono::duration <double, milli> (diff).count() << " ms" << endl;
 }
 
-void printFile(string tipas, int longestName, int longestSurname, list<mokinys> &mok) {
+void mokinys::printFile(string tipas, int longestName, int longestSurname, list<mokinys> &mok) {
   std::list<mokinys>::iterator it;
   list<mokinys> mokBad;
   ofstream output_good("output_good.txt");

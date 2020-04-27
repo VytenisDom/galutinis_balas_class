@@ -117,7 +117,7 @@ void generateFiles() {
 
 }
 
-void readFile(double &inputPazymys, deque<mokinys> &mok) {
+void mokinys::readFile(double &inputPazymys, deque<mokinys> &mok) {
   string failas;
   cout << "Galimi failai:" << endl;
   cout << "studentai1000.txt" << endl;
@@ -189,7 +189,7 @@ void readFile(double &inputPazymys, deque<mokinys> &mok) {
   }
 }
 
-void enterByHand(double &inputPazymys, bool &naujas, deque<mokinys> &mok) {
+void mokinys::enterByHand(double &inputPazymys, bool &naujas, deque<mokinys> &mok) {
   for(int i = 0;;i++) {
     cout << "Prideti nauja mokini? (1 - taip, 0 - ne) ";
     cin >> naujas;
@@ -250,7 +250,7 @@ void enterByHand(double &inputPazymys, bool &naujas, deque<mokinys> &mok) {
   sort(mok.begin(), mok.end(), compare);
 }
 
-void longestNameAndSurname(int &longestName, int &longestSurname, deque<mokinys> mok) {
+void mokinys::longestNameAndSurname(int &longestName, int &longestSurname, deque<mokinys> mok) {
   for(int i = 0; i < mok.size(); i++) {
     if(mok.at(i).vardas.length() > longestName) longestName = mok.at(i).vardas.length() + 1;
     if(mok.at(i).pavarde.length() > longestSurname) longestSurname = mok.at(i).pavarde.length() + 1;
@@ -259,7 +259,7 @@ void longestNameAndSurname(int &longestName, int &longestSurname, deque<mokinys>
   if(longestSurname < 8) longestSurname = 8;
 }
 
-void studentSort(deque<mokinys> &mok, deque<mokinys> &mokBad, string tipas) {
+void mokinys::studentSort(deque<mokinys> &mok, deque<mokinys> &mokBad, string tipas) {
   auto start = std::chrono::steady_clock::now();
   for(int i = 0; i < mok.size(); i++) {
     if(tipas == "vid") {
@@ -282,7 +282,7 @@ void studentSort(deque<mokinys> &mok, deque<mokinys> &mokBad, string tipas) {
   cout << "Mokiniu rusiavimas uztruko " <<  std::chrono::duration <double, milli> (diff).count() << " ms" << endl;
 }
 
-void printFile(string tipas, int longestName, int longestSurname, deque<mokinys> &mok) {
+void mokinys::printFile(string tipas, int longestName, int longestSurname, deque<mokinys> &mok) {
   deque<mokinys> mokBad;
   ofstream output_good("output_good.txt");
   ofstream output_bad("output_bad.txt");

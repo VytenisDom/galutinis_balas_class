@@ -51,27 +51,27 @@ void generateFiles() {
     auto diff = end - start;
     cout << std::chrono::duration <double, milli> (diff).count() << " ms" << endl;
   }/*Studentai10000.txt*/
-  // {
-  //   cout << "studentai100000.txt... ";
-  //   auto start = std::chrono::steady_clock::now();
-  //   ofstream out100000("studentai100000.txt");
-  //   out100000 << left << setw(25) << "Vardas" << left << setw(25) << "Pavarde"
-  //   << left << setw(6) << "ND1" << left << setw(6) << "ND2" << left
-  //   << setw(6) << "ND3" << left << setw(20) << "Egzaminas" << endl;
-  //   for(int i = 1; i <= 100000; i++) {
-  //     out100000 << left << setw(25) << "Vardas" + to_string(i)
-  //     << left << setw(25) << "Pavarde" + to_string(i)
-  //     << left << setw(6) << balas(rng)
-  //     << left << setw(6) << balas(rng)
-  //     << left << setw(6) << balas(rng)
-  //     << left << balas(rng);
-  //     if(i < 100000) out100000 << endl;
-  //   }
-  //   out100000.close();
-  //   auto end = std::chrono::steady_clock::now();
-  //   auto diff = end - start;
-  //   cout << std::chrono::duration <double, milli> (diff).count() << " ms" << endl;
-  // }/*Studentai100000.txt*/
+  {
+    cout << "studentai100000.txt... ";
+    auto start = std::chrono::steady_clock::now();
+    ofstream out100000("studentai100000.txt");
+    out100000 << left << setw(25) << "Vardas" << left << setw(25) << "Pavarde"
+    << left << setw(6) << "ND1" << left << setw(6) << "ND2" << left
+    << setw(6) << "ND3" << left << setw(20) << "Egzaminas" << endl;
+    for(int i = 1; i <= 100000; i++) {
+      out100000 << left << setw(25) << "Vardas" + to_string(i)
+      << left << setw(25) << "Pavarde" + to_string(i)
+      << left << setw(6) << balas(rng)
+      << left << setw(6) << balas(rng)
+      << left << setw(6) << balas(rng)
+      << left << balas(rng);
+      if(i < 100000) out100000 << endl;
+    }
+    out100000.close();
+    auto end = std::chrono::steady_clock::now();
+    auto diff = end - start;
+    cout << std::chrono::duration <double, milli> (diff).count() << " ms" << endl;
+  }/*Studentai100000.txt*/
   // {
   //   cout << "studentai1000000.txt... ";
   //   auto start = std::chrono::steady_clock::now();
@@ -117,7 +117,7 @@ void generateFiles() {
 
 }
 
-void readFile(double &inputPazymys, vector<mokinys> &mok) {
+void mokinys::readFile(double &inputPazymys, vector<mokinys> &mok) {
   string failas;
   cout << "Galimi failai:" << endl;
   cout << "studentai1000.txt" << endl;
@@ -189,7 +189,7 @@ void readFile(double &inputPazymys, vector<mokinys> &mok) {
   }
 }
 
-void enterByHand(double &inputPazymys, bool &naujas, vector<mokinys> &mok) {
+void mokinys::enterByHand(double &inputPazymys, bool &naujas, vector<mokinys> &mok) {
   for(int i = 0;;i++) {
     cout << "Prideti nauja mokini? (1 - taip, 0 - ne) ";
     cin >> naujas;
@@ -250,7 +250,7 @@ void enterByHand(double &inputPazymys, bool &naujas, vector<mokinys> &mok) {
   sort(mok.begin(), mok.end(), compare);
 }
 
-void longestNameAndSurname(int &longestName, int &longestSurname, vector<mokinys> mok) {
+void mokinys::longestNameAndSurname(int &longestName, int &longestSurname, vector<mokinys> mok) {
   for(int i = 0; i < mok.size(); i++) {
     if(mok.at(i).vardas.length() > longestName) longestName = mok.at(i).vardas.length() + 1;
     if(mok.at(i).pavarde.length() > longestSurname) longestSurname = mok.at(i).pavarde.length() + 1;
@@ -259,7 +259,7 @@ void longestNameAndSurname(int &longestName, int &longestSurname, vector<mokinys
   if(longestSurname < 8) longestSurname = 8;
 }
 
-void studentSort(vector<mokinys> &mok, vector<mokinys> &mokBad, string tipas) {
+void mokinys::studentSort(vector<mokinys> &mok, vector<mokinys> &mokBad, string tipas) {
   auto start = std::chrono::steady_clock::now();
   for(int i = 0; i < mok.size(); i++) {
     if(tipas == "vid") {
@@ -282,7 +282,7 @@ void studentSort(vector<mokinys> &mok, vector<mokinys> &mokBad, string tipas) {
   cout << "Mokiniu rusiavimas uztruko " <<  std::chrono::duration <double, milli> (diff).count() << " ms" << endl;
 }
 
-void printFile(string tipas, int longestName, int longestSurname, vector<mokinys> &mok) {
+void mokinys::printFile(string tipas, int longestName, int longestSurname, vector<mokinys> &mok) {
   vector<mokinys> mokBad;
   ofstream output_good("output_good.txt");
   ofstream output_bad("output_bad.txt");
