@@ -300,6 +300,7 @@ void mokinys::printFile(string tipas, int longestName, int longestSurname, vecto
       output_good << endl;
 
       for(int i = 0; i < mok.size(); i++) {
+        cout << mok.at(i);
         output_good.precision(2);
         output_good << mok.at(i).vardas;
         for(int x = 0; x < longestName - mok.at(i).vardas.length() + 1; x++) output_good << " ";

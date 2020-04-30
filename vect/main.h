@@ -38,6 +38,16 @@ public:
   double mediana;
   double egzaminas;
 
+  friend std::ostream& operator<<(std::ostream& out, const mokinys &a) {
+    out << "--------------------\n"
+    << "Vardas: " << a.vardas << '\n'
+    << "Pavarde: " << a.pavarde << '\n'
+    << "Vidurkis: " << a.vidurkis << '\n'
+    << "Mediana: " << a.mediana << '\n'
+    << "--------------------\n";
+    return out;
+  }
+
   void readFile(double &, vector<mokinys> &);
   void enterByHand(double &, bool &, vector<mokinys> &);
   void longestNameAndSurname(int &, int &, vector<mokinys>);
