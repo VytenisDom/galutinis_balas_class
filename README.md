@@ -130,7 +130,7 @@ PC specs:
 - SSD: 251 GB PCI
 
 # How to run the program
-1. Clone project [Galutinis balas v1.0](https://github.com/krispis1/galutinis_balas_class/tree/v1.5) to your computer.
+1. Clone project [Galutinis balas v1.5](https://github.com/krispis1/galutinis_balas_class/tree/v1.5) to your computer.
 2. Open BASH or ZSHELL inside the folder.
 3. Select one of the program folders.
 4. Run `g++ -std=c++11 -o <any_name> <main_vect.cpp || main_list.cpp || main_deque.cpp> funcs.cpp`.
