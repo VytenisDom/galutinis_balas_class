@@ -118,6 +118,11 @@ nuskaitymas class: 110.323 ms
 rusiavimas: 2466.91 ms
 rusiavimas class: 2470.75 ms
 
+# Release v1.2
+Custom "<<" operator added.
+
+# Release v1.5
+Main class Zmogus and derived class Mokinys added.
 
 PC specs:
 - CPU: Quad-Core Intel Core i7 2,2 GHz
