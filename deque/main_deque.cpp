@@ -8,8 +8,8 @@ int main() {
   bool budas;
   bool naujas;
   string tipas;
-  deque<mokinys> mok;
-  mokinys obj;
+  deque<Mokinys> mok;
+  Mokinys obj;
   cout << "Generuojami failai..." << endl;
   generateFiles();
   cout << "Sveiki, tai mokiniu galutiniu balu skaiciavimo sistema.\n" << endl;

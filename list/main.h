@@ -29,21 +29,34 @@ using std::uniform_int_distribution;
 using std::left;
 using std::setw;
 
-class mokinys {
+class Zmogus {
 public:
   string vardas;
   string pavarde;
+};
+class Mokinys : public Zmogus {
+public:
   list<double> pazymiai;
   double vidurkis;
   double mediana;
   double egzaminas;
 
-  void readFile(double &, list<mokinys> &);
-  void enterByHand(double &, bool &, list<mokinys> &);
-  void longestNameAndSurname(int &, int &, list<mokinys>);
-  void printFile(string, int, int, list<mokinys> &);
-  void studentSort(list<mokinys> &, list<mokinys> &, string);
+  friend std::ostream& operator<<(std::ostream& out, const Mokinys &a) {
+    out << "--------------------\n"
+    << "Vardas: " << a.vardas << '\n'
+    << "Pavarde: " << a.pavarde << '\n'
+    << "Vidurkis: " << a.vidurkis << '\n'
+    << "Mediana: " << a.mediana << '\n'
+    << "--------------------\n";
+    return out;
+  }
+
+  void readFile(double &, list<Mokinys> &);
+  void enterByHand(double &, bool &, list<Mokinys> &);
+  void longestNameAndSurname(int &, int &, list<Mokinys>);
+  void printFile(string, int, int, list<Mokinys> &);
+  void studentSort(list<Mokinys> &, list<Mokinys> &, string);
 };
 
-bool compare(const mokinys &, const mokinys &);
+bool compare(const Mokinys &, const Mokinys &);
 void generateFiles();

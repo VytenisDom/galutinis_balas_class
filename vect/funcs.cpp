@@ -1,6 +1,6 @@
 #include "main.h"
 
-bool compare(const mokinys &a, const mokinys &b) {
+bool compare(const Mokinys &a, const Mokinys &b) {
   return (a.vardas < b.vardas || (a.vardas == b.vardas && a.pavarde < b.pavarde));
 }
 
@@ -117,7 +117,7 @@ void generateFiles() {
 
 }
 
-void mokinys::readFile(double &inputPazymys, vector<mokinys> &mok) {
+void Mokinys::readFile(double &inputPazymys, vector<Mokinys> &mok) {
   string failas;
   cout << "Galimi failai:" << endl;
   cout << "studentai1000.txt" << endl;
@@ -138,7 +138,7 @@ void mokinys::readFile(double &inputPazymys, vector<mokinys> &mok) {
       ndCount++;
     }
     while (!input.eof()) {
-      mokinys m;
+      Mokinys m;
       input >> m.vardas >> m.pavarde;
         for (int i = 0; i < ndCount; i++) {
           if(input >> inputPazymys && inputPazymys >= 1 && inputPazymys <= 10) {
@@ -189,12 +189,12 @@ void mokinys::readFile(double &inputPazymys, vector<mokinys> &mok) {
   }
 }
 
-void mokinys::enterByHand(double &inputPazymys, bool &naujas, vector<mokinys> &mok) {
+void Mokinys::enterByHand(double &inputPazymys, bool &naujas, vector<Mokinys> &mok) {
   for(int i = 0;;i++) {
     cout << "Prideti nauja mokini? (1 - taip, 0 - ne) ";
     cin >> naujas;
     if(naujas) {
-      mokinys m;
+      Mokinys m;
       cout << "Pilnas mokinio vardas: ";
       cin >> m.vardas >> m.pavarde;
       for(int j = 0;;j++) {
@@ -250,7 +250,7 @@ void mokinys::enterByHand(double &inputPazymys, bool &naujas, vector<mokinys> &m
   sort(mok.begin(), mok.end(), compare);
 }
 
-void mokinys::longestNameAndSurname(int &longestName, int &longestSurname, vector<mokinys> mok) {
+void Mokinys::longestNameAndSurname(int &longestName, int &longestSurname, vector<Mokinys> mok) {
   for(int i = 0; i < mok.size(); i++) {
     if(mok.at(i).vardas.length() > longestName) longestName = mok.at(i).vardas.length() + 1;
     if(mok.at(i).pavarde.length() > longestSurname) longestSurname = mok.at(i).pavarde.length() + 1;
@@ -259,7 +259,7 @@ void mokinys::longestNameAndSurname(int &longestName, int &longestSurname, vecto
   if(longestSurname < 8) longestSurname = 8;
 }
 
-void mokinys::studentSort(vector<mokinys> &mok, vector<mokinys> &mokBad, string tipas) {
+void Mokinys::studentSort(vector<Mokinys> &mok, vector<Mokinys> &mokBad, string tipas) {
   auto start = std::chrono::steady_clock::now();
   for(int i = 0; i < mok.size(); i++) {
     if(tipas == "vid") {
@@ -282,8 +282,8 @@ void mokinys::studentSort(vector<mokinys> &mok, vector<mokinys> &mokBad, string 
   cout << "Mokiniu rusiavimas uztruko " <<  std::chrono::duration <double, milli> (diff).count() << " ms" << endl;
 }
 
-void mokinys::printFile(string tipas, int longestName, int longestSurname, vector<mokinys> &mok) {
-  vector<mokinys> mokBad;
+void Mokinys::printFile(string tipas, int longestName, int longestSurname, vector<Mokinys> &mok) {
+  vector<Mokinys> mokBad;
   ofstream output_good("output_good.txt");
   ofstream output_bad("output_bad.txt");
   if(tipas == "vid") {
