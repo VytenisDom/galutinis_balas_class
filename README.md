@@ -118,6 +118,8 @@ nuskaitymas class: 110.323 ms
 rusiavimas: 2466.91 ms
 rusiavimas class: 2470.75 ms
 
+# Release v1.1
+Custom "<<" operator added.
 
 PC specs:
 - CPU: Quad-Core Intel Core i7 2,2 GHz
