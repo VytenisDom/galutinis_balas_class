@@ -118,14 +118,23 @@ nuskaitymas class: 110.323 ms
 rusiavimas: 2466.91 ms
 rusiavimas class: 2470.75 ms
 
+# Release v1.2
+Custom "<<" operator added.
+
+# Release v1.5
+Main class Zmogus and derived class Mokinys added.
 
 PC specs:
 - CPU: Quad-Core Intel Core i7 2,2 GHz
 - RAM: 16 GB DDR3
 - SSD: 251 GB PCI
 
+# Release v2.0
+
+Added Doxygen documentation under /vect folder.
+
 # How to run the program
-1. Clone project [Galutinis balas v1.0](https://github.com/krispis1/galutinis_balas_class/tree/v1.1) to your computer.
+1. Clone project [Galutinis balas v2.0](https://github.com/krispis1/galutinis_balas_class/tree/v2.0) to your computer.
 2. Open BASH or ZSHELL inside the folder.
 3. Select one of the program folders.
 4. Run `g++ -std=c++11 -o <any_name> <main_vect.cpp || main_list.cpp || main_deque.cpp> funcs.cpp`.

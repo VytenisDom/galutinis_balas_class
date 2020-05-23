@@ -1,6 +1,6 @@
 #include "main.h"
 
-bool compare(const mokinys &a, const mokinys &b) {
+bool compare(const Mokinys &a, const Mokinys &b) {
   return (a.vardas < b.vardas || (a.vardas == b.vardas && a.pavarde < b.pavarde));
 }
 
@@ -117,7 +117,7 @@ void generateFiles() {
 
 }
 
-void mokinys::readFile(double &inputPazymys, list<mokinys> &mok) {
+void Mokinys::readFile(double &inputPazymys, list<Mokinys> &mok) {
   std::list<double>::iterator it, it1, it2;
   string failas;
   cout << "Galimi failai:" << endl;
@@ -139,7 +139,7 @@ void mokinys::readFile(double &inputPazymys, list<mokinys> &mok) {
       ndCount++;
     }
     while (!input.eof()) {
-      mokinys m;
+      Mokinys m;
       input >> m.vardas >> m.pavarde;
         for (int i = 0; i < ndCount; i++) {
           if(input >> inputPazymys && inputPazymys >= 1 && inputPazymys <= 10) {
@@ -191,7 +191,7 @@ void mokinys::readFile(double &inputPazymys, list<mokinys> &mok) {
       mok.push_back(m);
     }
     input.close();
-    mok.sort([](const mokinys &a, const mokinys &b) { return a.vardas < b.vardas || (a.vardas == b.vardas && a.pavarde < b.pavarde); });
+    mok.sort([](const Mokinys &a, const Mokinys &b) { return a.vardas < b.vardas || (a.vardas == b.vardas && a.pavarde < b.pavarde); });
     //sort(mok.begin(), mok.end(), compare);
     auto end = std::chrono::steady_clock::now();
     auto diff = end - start;
@@ -201,13 +201,13 @@ void mokinys::readFile(double &inputPazymys, list<mokinys> &mok) {
   }
 }
 
-void mokinys::enterByHand(double &inputPazymys, bool &naujas, list<mokinys> &mok) {
+void Mokinys::enterByHand(double &inputPazymys, bool &naujas, list<Mokinys> &mok) {
   std::list<double>::iterator it, it1, it2;
   for(int i = 0;;i++) {
     cout << "Prideti nauja mokini? (1 - taip, 0 - ne) ";
     cin >> naujas;
     if(naujas) {
-      mokinys m;
+      Mokinys m;
       cout << "Pilnas mokinio vardas: ";
       cin >> m.vardas >> m.pavarde;
       for(int j = 0;;j++) {
@@ -269,12 +269,12 @@ void mokinys::enterByHand(double &inputPazymys, bool &naujas, list<mokinys> &mok
       mok.push_back(m);
     } else break;
   }
-  mok.sort([](const mokinys &a, const mokinys &b) { return a.vardas < b.vardas || (a.vardas == b.vardas && a.pavarde < b.pavarde); });
+  mok.sort([](const Mokinys &a, const Mokinys &b) { return a.vardas < b.vardas || (a.vardas == b.vardas && a.pavarde < b.pavarde); });
   //sort(mok.begin(), mok.end(), compare);
 }
 
-void mokinys::longestNameAndSurname(int &longestName, int &longestSurname, list<mokinys> mok) {
-  std::list<mokinys>::iterator it;
+void Mokinys::longestNameAndSurname(int &longestName, int &longestSurname, list<Mokinys> mok) {
+  std::list<Mokinys>::iterator it;
   for(int i = 0; i < mok.size(); i++) {
     it = std::next(mok.begin(), i);
     if(it->vardas.length() > longestName) longestName = it->vardas.length() + 1;
@@ -284,8 +284,8 @@ void mokinys::longestNameAndSurname(int &longestName, int &longestSurname, list<
   if(longestSurname < 8) longestSurname = 8;
 }
 
-void mokinys::studentSort(list<mokinys> &mok, list<mokinys> &mokBad, string tipas) {
-  std::list<mokinys>::iterator it;
+void Mokinys::studentSort(list<Mokinys> &mok, list<Mokinys> &mokBad, string tipas) {
+  std::list<Mokinys>::iterator it;
   auto start = std::chrono::steady_clock::now();
   for(int i = 0; i < mok.size(); i++) {
     it = std::next(mok.begin(), i);
@@ -309,9 +309,9 @@ void mokinys::studentSort(list<mokinys> &mok, list<mokinys> &mokBad, string tipa
   cout << "Mokiniu rusiavimas uztruko " <<  std::chrono::duration <double, milli> (diff).count() << " ms" << endl;
 }
 
-void mokinys::printFile(string tipas, int longestName, int longestSurname, list<mokinys> &mok) {
-  std::list<mokinys>::iterator it;
-  list<mokinys> mokBad;
+void Mokinys::printFile(string tipas, int longestName, int longestSurname, list<Mokinys> &mok) {
+  std::list<Mokinys>::iterator it;
+  list<Mokinys> mokBad;
   ofstream output_good("output_good.txt");
   ofstream output_bad("output_bad.txt");
   if(tipas == "vid") {
@@ -329,6 +329,7 @@ void mokinys::printFile(string tipas, int longestName, int longestSurname, list<
 
       it = std::next(mok.begin(), 0);
       for(int i = 0; i < mok.size(); i++) {
+        cout << it;
         output_good.precision(2);
         output_good << it->vardas;
         for(int x = 0; x < longestName - it->vardas.length() + 1; x++) output_good << " ";
