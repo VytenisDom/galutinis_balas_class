@@ -125,17 +125,12 @@ Custom "<<" operator added.
 Main class Zmogus and derived class Mokinys added.
 
 # Release v2.0
-Doxygen documentation generated
-=======
+Added Doxygen documentation under /vect folder.
 
 PC specs:
 - CPU: Quad-Core Intel Core i7 2,2 GHz
 - RAM: 16 GB DDR3
 - SSD: 251 GB PCI
-
-# Release v2.0
-
-Added Doxygen documentation under /vect folder.
 
 # How to run the program
 1. Clone project [Galutinis balas v2.0](https://github.com/krispis1/galutinis_balas_class/tree/v2.0) to your computer.
